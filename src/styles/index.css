@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Big focus states for scanner/touch hybrid */
+  input:focus,
+  button:focus {
+    @apply outline-none ring-2 ring-black ring-offset-2;
+  }
+
+  /* Tabular numbers for prices */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Sinhala sub-labels */
+  .si-label {
+    @apply text-xs text-gray-500 block mt-0.5;
+  }
+
+  /* Big action buttons */
+  .btn-primary {
+    @apply bg-primary text-white font-medium rounded-lg min-h-[56px] px-6 
+           active:scale-[0.98] transition-transform duration-75
+           flex items-center justify-center gap-2;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white font-medium rounded-lg min-h-[56px] px-6
+           active:scale-[0.98] transition-transform duration-75
+           flex items-center justify-center gap-2;
+  }
+
+  .btn-success {
+    @apply bg-success text-white font-medium rounded-lg min-h-[56px] px-6
+           active:scale-[0.98] transition-transform duration-75
+           flex items-center justify-center gap-2;
+  }
+
+  .btn-payment {
+    @apply font-medium rounded-lg min-h-[64px] px-4
+           active:scale-[0.98] transition-transform duration-75
+           flex flex-col items-center justify-center gap-0.5
+           text-white;
+  }
+
+  .btn-payment-cash {
+    @apply btn-payment bg-primary;
+  }
+
+  .btn-payment-lankaqr {
+    @apply btn-payment bg-lankaqr;
+  }
+
+  .btn-payment-card {
+    @apply btn-payment bg-gray-700;
+  }
+
+  /* Screen container */
+  .screen {
+    @apply max-w-5xl mx-auto px-4 py-6 min-h-screen;
+  }
+
+  /* Card style */
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+  }
+}
+
+/* Print receipt styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+}
